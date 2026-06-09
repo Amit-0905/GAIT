@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GAIT v2 — Demo</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; }
+    form { border: 1px solid #ddd; border-radius: 8px; padding: 1.5rem; background: #fafafa; }
+    label { display: block; margin-bottom: 1rem; }
+    label span { display: block; margin-bottom: .35rem; font-weight: 500; }
+    input, textarea { width: 100%; padding: .5rem .75rem; border: 1px solid #ccc; border-radius: 4px; font: inherit; }
+    button { padding: .6rem 1.2rem; background: #2563eb; color: white; border: none; border-radius: 4px; font: inherit; cursor: pointer; }
+    .status { margin-top: 1rem; padding: .75rem; border-radius: 4px; display: none; }
+    .status.ok { display: block; background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+    .status.err { display: block; background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
+  </style>
+</head>
+<body>
+  <h1>GAIT v2 Demo</h1>
+  <form action="/contact" method="POST" data-gait="v2">
+    <label><span>Email</span><input type="email" name="email" required /></label>
+    <label><span>Message</span><textarea name="message" rows="4" required></textarea></label>
+    <button type="submit">Submit</button>
+  </form>
+  <div id="status" class="status"></div>
+  <script type="module">
+    import { Gait } from './dist/gait-v2.esm.js';
+    const form = document.querySelector('form[data-gait="v2"]');
+    const statusEl = document.getElementById('status');
+    const gait = new Gait({ challengeUrl: '/gait-challenge', mode: 'balanced', debug: true });
+    gait.attachForms();
+    function show(kind, msg) { statusEl.className = 'status ' + kind; statusEl.textContent = msg; }
+    form?.addEventListener('gait:pass', (e) => show('ok', '✅ Passed'));
+    form?.addEventListener('gait:block', (e) => show('err', '🚫 Blocked — score: ' + e.detail.score));
+    form?.addEventListener('gait:error', (e) => show('err', '❌ Error — ' + e.detail.reason));
+  </script>
+</body>
+</html>

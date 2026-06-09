@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GAIT Example</title>
+  </head>
+  <body>
+    <h1>Contact form</h1>
+    <form action="/contact" method="POST" data-gait="v2">
+      <label>Email <input type="email" name="email" required /></label><br /><br />
+      <label>Message <textarea name="message" required></textarea></label><br /><br />
+      <button type="submit">Send</button>
+    </form>
+
+    <script type="module">
+      import { Gait } from '../dist/gait-v2.esm.js';
+      const gait = new Gait({ mode: 'balanced', ciBypass: false, debug: true });
+      gait.attachForms();
+      document
+        .querySelector('form')
+        ?.addEventListener('gait:block', e => console.warn('Blocked', e.detail));
+      document.querySelector('form')?.addEventListener('gait:pass', () => console.log('Passed'));
+    </script>
+  </body>
+</html>

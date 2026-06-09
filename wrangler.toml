@@ -1,0 +1,11 @@
+name = "gait-worker"
+main = "worker/worker.ts"
+compatibility_date = "2026-06-09"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+GAIT_MODE = "balanced"
+GAIT_ALLOWLIST_IPS = ""
+
+[build]
+command = "npm run build:worker"
