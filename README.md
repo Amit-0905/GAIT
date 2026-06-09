@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./docs/logo.png" alt="Gait" width="120" />
+  <img src="./examples/00001.jpg" alt="Gait" width="120" />
 </p>
 <h1 align="center">GAIT v2</h1>
 <p align="center">
