@@ -323,9 +323,9 @@ Never enable `ciBypass` in production.
 
 ## Author
 
-**Amit Sharma** — [github.com/Amit-0905](https://github.com/Amit-0905)
+**Amit** — [github.com/Amit-0905](https://github.com/Amit-0905)
 
-Built for [Zenith](https://github.com/Amit-0905) and the broader anti-bot community.
+Built for [Anti-Bot](https://github.com/Amit-0905) and the broader anti-bot community.
 
 ---
 
