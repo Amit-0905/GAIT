@@ -1,7 +1,7 @@
 <p align="center">
   <img src="./examples/00001.jpg" alt="Gait" width="120" />
 </p>
-<h1 align="center">GAIT v2</h1>
+<h1 align="center">GAIT v2 - A BOT Blocker On Your Website</h1>
 <p align="center">
   <b>Invisible proof-of-humanity for forms, APIs, and user actions.</b><br>
   Drop-in JS + Cloudflare Worker. No CAPTCHA. No tracking tokens. No friction.
